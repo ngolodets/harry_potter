@@ -7,8 +7,6 @@ import { BrowserRouter as Router, Switch, Route, withRouter, Link } from 'react-
 
 function App() {
   const [allCharacters, setAllCharacters] = useState([]);
-  // const [students, setStudents] = useState([]);
-  //const [staff, setStaff] = useState([]);
   const [house, setHouse] = useState('');
   const [houses, setHouses] = useState([]);
 
@@ -39,7 +37,6 @@ function App() {
   }
 
   let houseReps;
-
   if (houses.length > 0) {
     houseReps = houses.map(function(rep, index) {
       return (
@@ -56,58 +53,7 @@ function App() {
     setHouse(e.target.value);  
   }
 
-  // function getStaff() {
-  //   let url = 'http://hp-api.herokuapp.com/api/characters/staff';
-  //   axios.get(url)
-  //     .then(function(response) {
-  //       setStaff(response.data);
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     })
-  // }
-
-  // let teachers;
-
-  // if (staff.length > 0) {
-  //   teachers = staff.map(function(teacher, index) {
-  //     return (
-  //       <div key={index}>
-  //         {teacher.name}
-  //       </div>
-  //     )
-  //   })
-  // } else {
-  //   teachers = <p></p>
-  // }
-
-  // function getStudents() {
-  //   let url = 'http://hp-api.herokuapp.com/api/characters/students';
-  //   axios.get(url)
-  //     .then(function(response) {
-  //       setStudents(response.data);
-  //     })
-  //     .catch(function(error) {
-  //       console.log(error);
-  //     })
-  // }
-
-  // let pupils;
-
-  // if (students.length > 0) {
-  //   pupils = students.map(function(student, index) {
-  //     return (
-  //       <div key={index}>
-  //         {student.name}
-  //       </div>
-  //     )
-  //   })
-  // } else {
-  //   pupils = <p></p>
-  // }
-
   let content;
-
   if (allCharacters.length > 0) {
     content = allCharacters.map(function(character, index) {
       let wand = character.wand;
@@ -135,7 +81,14 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav className='nav'>
+        <nav className='nav'
+              style={{position: 'fixed',
+                      top: '0',
+                      width: '100%',
+                      overflow: 'hidden',
+                      backgroundColor: '#282c34'
+                    }}
+        >
           <Link to='/'
                 style={{textDecoration: 'none',
                         color: 'white',
@@ -160,8 +113,11 @@ function App() {
           >
             Staff
           </Link>
+          
           <form onSubmit={handleSubmit}
-                style={{display: 'inline-block'}}
+                style={{display: 'inline-block',
+                        padding: '1em'
+                }}
           >
             <label>Search House:
               <input type='text'
@@ -176,27 +132,14 @@ function App() {
           <Route exact path='/students' component={Students} />
           <Route exact path='/staff' component={Staff} />
         </Switch>
-        {/* <input type='submit'
-                value='students'
-                onClick={getStudents}
-        /> */}
-        {/* <input type='submit'
-                value='staff'
-                onClick={getStaff}
-        /> */}
-        {/* <form onSubmit={handleSubmit}>
-          <label>Search House:
-            <br/>
-            <input type='text'
-                    value={house}
-                    onChange={getHouse}
-            />
-          </label>
-        </form> */}
-        {/* <div>{pupils}</div> */}
-        {/* <div>{teachers}</div> */}
-        <div>{houseReps}</div>
-        {content}
+        
+        <div>
+          {houseReps}
+        </div>
+
+        <div>
+          {content}
+        </div>
       </div>
     </Router>
   );

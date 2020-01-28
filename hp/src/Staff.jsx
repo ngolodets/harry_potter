@@ -16,7 +16,6 @@ function Staff() {
   }, []);
 
   let teachers;
-
   if (staff.length > 0) {
     teachers = staff.map(function(teacher, index) {
       return (

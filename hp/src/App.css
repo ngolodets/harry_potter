@@ -11,8 +11,9 @@
 }
 
 #search-house {
-  background-color: rgb(112, 112, 229);
+  background-color: #282c34;
   height: 1em;
+  color: white;
 }
 
 #char-pic {
