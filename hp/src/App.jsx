@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import Students from './Students';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route, withRouter, Link } from 'react-router-dom';
 
 function App() {
   const [allCharacters, setAllCharacters] = useState([]);
@@ -130,27 +132,32 @@ function App() {
     content = <h1>There Are No Characters!</h1>
   }
   return (
-    <div className="App">
-      
-      {/* <input type='submit'
-              value='students'
-              onClick={getStudents}
-      /> */}
-      <input type='submit'
-              value='staff'
-              onClick={getStaff}
-      />
-      <form onSubmit={handleSubmit}>
-        <input type='text'
-                value={house}
-                onChange={getHouse}
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path='/students' component={Students} />
+        </Switch>
+        <Link to='/students'>Students</Link>
+        {/* <input type='submit'
+                value='students'
+                onClick={getStudents}
+        /> */}
+        <input type='submit'
+                value='staff'
+                onClick={getStaff}
         />
-      </form>
-      {/* <div>{pupils}</div> */}
-      <div>{teachers}</div>
-      <div>{houseReps}</div>
-      {content}
-    </div>
+        <form onSubmit={handleSubmit}>
+          <input type='text'
+                  value={house}
+                  onChange={getHouse}
+          />
+        </form>
+        {/* <div>{pupils}</div> */}
+        <div>{teachers}</div>
+        <div>{houseReps}</div>
+        {content}
+      </div>
+    </Router>
   );
 }
 

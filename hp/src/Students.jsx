@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 function Students() {
   const [students, setStudents] = useState([]);
 
-  function getStudents() {
+  //function getStudents() {
+  useEffect(function() {
     let url = 'http://hp-api.herokuapp.com/api/characters/students';
     axios.get(url)
       .then(function(response) {
@@ -13,7 +14,9 @@ function Students() {
       .catch(function(error) {
         console.log(error);
       })
-  }
+  }, []);
+    
+  //}
 
   let pupils;
 
