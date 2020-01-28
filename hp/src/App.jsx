@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Students from './Students';
+import Staff from './Staff';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, withRouter, Link } from 'react-router-dom';
 
 function App() {
   const [allCharacters, setAllCharacters] = useState([]);
   // const [students, setStudents] = useState([]);
-  const [staff, setStaff] = useState([]);
+  //const [staff, setStaff] = useState([]);
   const [house, setHouse] = useState('');
   const [houses, setHouses] = useState([]);
 
@@ -55,30 +56,30 @@ function App() {
     setHouse(e.target.value);  
   }
 
-  function getStaff() {
-    let url = 'http://hp-api.herokuapp.com/api/characters/staff';
-    axios.get(url)
-      .then(function(response) {
-        setStaff(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-  }
+  // function getStaff() {
+  //   let url = 'http://hp-api.herokuapp.com/api/characters/staff';
+  //   axios.get(url)
+  //     .then(function(response) {
+  //       setStaff(response.data);
+  //     })
+  //     .catch(function(error) {
+  //       console.log(error);
+  //     })
+  // }
 
-  let teachers;
+  // let teachers;
 
-  if (staff.length > 0) {
-    teachers = staff.map(function(teacher, index) {
-      return (
-        <div key={index}>
-          {teacher.name}
-        </div>
-      )
-    })
-  } else {
-    teachers = <p></p>
-  }
+  // if (staff.length > 0) {
+  //   teachers = staff.map(function(teacher, index) {
+  //     return (
+  //       <div key={index}>
+  //         {teacher.name}
+  //       </div>
+  //     )
+  //   })
+  // } else {
+  //   teachers = <p></p>
+  // }
 
   // function getStudents() {
   //   let url = 'http://hp-api.herokuapp.com/api/characters/students';
@@ -134,26 +135,66 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <nav className='nav'>
+          <Link to='/'
+                style={{textDecoration: 'none',
+                        color: 'white',
+                        padding: '2em'
+                }}
+          >
+            Home
+          </Link>
+          <Link to='/students'
+                style={{textDecoration: 'none',
+                color: 'white',
+                padding: '2em'
+                }}
+          >
+            Students
+          </Link>
+          <Link to='/staff'
+                style={{textDecoration: 'none',
+                color: 'white',
+                padding: '2em'
+                }}
+          >
+            Staff
+          </Link>
+          <form onSubmit={handleSubmit}
+                style={{display: 'inline-block'}}
+          >
+            <label>Search House:
+              <input type='text'
+                      value={house}
+                      onChange={getHouse}
+                      id='search-house'
+              />
+            </label>
+          </form>
+        </nav>
         <Switch>
           <Route exact path='/students' component={Students} />
+          <Route exact path='/staff' component={Staff} />
         </Switch>
-        <Link to='/students'>Students</Link>
         {/* <input type='submit'
                 value='students'
                 onClick={getStudents}
         /> */}
-        <input type='submit'
+        {/* <input type='submit'
                 value='staff'
                 onClick={getStaff}
-        />
-        <form onSubmit={handleSubmit}>
-          <input type='text'
-                  value={house}
-                  onChange={getHouse}
-          />
-        </form>
+        /> */}
+        {/* <form onSubmit={handleSubmit}>
+          <label>Search House:
+            <br/>
+            <input type='text'
+                    value={house}
+                    onChange={getHouse}
+            />
+          </label>
+        </form> */}
         {/* <div>{pupils}</div> */}
-        <div>{teachers}</div>
+        {/* <div>{teachers}</div> */}
         <div>{houseReps}</div>
         {content}
       </div>

@@ -10,6 +10,11 @@
   color: white;
 }
 
+#search-house {
+  background-color: rgb(112, 112, 229);
+  height: 1em;
+}
+
 #char-pic {
   width: 90px;
   height: 100px;

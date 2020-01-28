@@ -1,38 +1,41 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-function Students() {
-  const [students, setStudents] = useState([]);
+function Staff() {
+  const [staff, setStaff] = useState([]);
 
   useEffect(function() {
-    let url = 'http://hp-api.herokuapp.com/api/characters/students';
+    let url = 'http://hp-api.herokuapp.com/api/characters/staff';
     axios.get(url)
       .then(function(response) {
-        setStudents(response.data);
+        setStaff(response.data);
       })
       .catch(function(error) {
         console.log(error);
       })
   }, []);
-    
-  let pupils;
 
-  if (students.length > 0) {
-    pupils = students.map(function(student, index) {
+  let teachers;
+
+  if (staff.length > 0) {
+    teachers = staff.map(function(teacher, index) {
       return (
         <div key={index}>
-          {student.name}
+          {teacher.name}
         </div>
       )
     })
   } else {
-    pupils = <p></p>
+    teachers = <p></p>
   }
+
   return (
     <div>
-      {pupils}
+      {teachers}
     </div>
   )
+  
+
 }
 
-export default Students;
+export default Staff;
