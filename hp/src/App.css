@@ -10,11 +10,21 @@
   color: white;
 }
 
+#title {
+  font-size: calc(1em + 2vmin);
+  margin-top: 1em;
+  font-family: 'Henny Penny', cursive;
+}
+
 .nav {
-  padding: 2em;
+  padding: 1.7em;
   max-width: 100%;
   font-size: calc(0.3em + 2vmin);
+  font-family: 'Special Elite', cursive;
+  font-weight: bold;
 }
+
+
 
 #search-house {
   background-color: #282c34;
@@ -50,6 +60,7 @@
 .charName {
   height: 17%;
   font-size: calc(0.2em + 2vmin);
+  font-family: 'Special Elite', cursive;
 }
 
 .actor {

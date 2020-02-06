@@ -68,6 +68,7 @@ function AllCharacters() {
 
   return (
     <div>
+      <h1 id='title'>Harry Potter Characters:</h1>
       {content}
     </div>
   )
