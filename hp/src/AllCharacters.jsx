@@ -3,8 +3,8 @@ import axios from 'axios';
 
 function AllCharacters() {
   const [allCharacters, setAllCharacters] = useState([]);
-  const [isHidden, setIsHidden] = useState(true);
-  const [hidePic, setHidePic] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [hidePic, setHidePic] = useState(true);
 
   useEffect(function() {
     let url = 'http://hp-api.herokuapp.com/api/characters';
@@ -19,8 +19,8 @@ function AllCharacters() {
 
   function showCharInfo() {
     if (isHidden === true) {
-      setIsHidden(false);
       setHidePic(true);
+      setIsHidden(false);
     } else {
       setIsHidden(true);
       setHidePic(false);
@@ -33,12 +33,18 @@ function AllCharacters() {
       let wand = character.wand;
       
       return (
-        <div key={index} className='characters' onClick={showCharInfo}>
+        <div key={index} 
+              className='characters' 
+              onClick={showCharInfo}
+              style={{width:  isHidden ? '60%' : '120px',
+                      height: isHidden ? '100%' : '150px'}}
+        >
           {hidePic && 
           <div>
             <h3 className='charName'>{character.name}</h3>
             <img src={character.image} 
                 alt={character.name}
+                
                 id='char-pic'
             />
           </div>
@@ -47,7 +53,7 @@ function AllCharacters() {
           <div>
             <p className='actor'>Played by {character.actor}</p>
             <div style={{display: wand.wood ? 'block' : 'none'}}>
-              <h4>Wand Information</h4>
+              <p>Wand Information</p>
               <p>Material: {wand.wood}</p>
               <p>Core: {wand.core}</p>
               <p>Length: {wand.length} inches</p>

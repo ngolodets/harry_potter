@@ -10,6 +10,12 @@
   color: white;
 }
 
+.nav {
+  padding: 2em;
+  max-width: 100%;
+  font-size: calc(0.3em + 2vmin);
+}
+
 #search-house {
   background-color: #282c34;
   height: 1em;
@@ -17,8 +23,14 @@
 }
 
 #char-pic {
-  width: 90px;
-  height: 100px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto auto 1em;
+  width: 70px;
+  height: 80px;
   border-radius: 50%;
 }
 
@@ -27,21 +39,34 @@
   width: 120px;
   height: 150px;
   font-size: calc(0.3em + 2vmin);
-  vertical-align: middle;
+  vertical-align: bottom;
   padding: 0.5em;
   border: 1px solid silver;
   border-style: groove;
   margin: 0.3em;
+  position: relative;
 }
 
 .charName {
   height: 17%;
-  
   font-size: calc(0.2em + 2vmin);
 }
 
 .actor {
   height: 40px;
+}
+
+@media screen and (max-width: 600px) {
+  .nav {
+    font-size: calc(0.18em + 2vmin);
+    padding: 2em;
+  }
+} 
+
+@media screen and (min-width: 600px) {
+  .characters {
+    margin-top: 1em;
+  }
 }
 
 
