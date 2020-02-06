@@ -1,96 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import Students from './Students';
 import Staff from './Staff';
+import AllCharacters from './AllCharacters';
+import SearchForm from './SearchForm';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
-  const [allCharacters, setAllCharacters] = useState([]);
-  const [house, setHouse] = useState('');
-  const [houses, setHouses] = useState([]);
-  const [isHidden, setIsHidden] = useState(true);
-  //const [character, setCharacter] = useState([]);
-
-  useEffect(function() {
-    let url = 'http://hp-api.herokuapp.com/api/characters';
-    axios.get(url)
-      .then(function(response) {
-        setAllCharacters(response.data);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-  }, []);
-
-  function handleSubmit(e, input) {
-    e.preventDefault();
-    input = house;
-    input = input.toLowerCase();
-    let url = `http://hp-api.herokuapp.com/api/characters/house/${input}`;
-    axios.get(url)
-      .then(function(response) {
-        setHouses(response.data);
-        setHouse('');
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-  }
-
-  let houseReps;
-  if (houses.length > 0) {
-    houseReps = houses.map(function(rep, index) {
-      return (
-        <div key={index}>
-          {rep.name}
-        </div>
-      )
-    })
-  } else {
-    houseReps = <p></p>
-  }
-
-  function getHouse(e) {
-    setHouse(e.target.value);  
-  }
-
-  function showCharInfo() {
-    if (isHidden === true) {
-      setIsHidden(false);
-    } else {
-      setIsHidden(true);
-    }
-  }
-
-  let content;
-  if (allCharacters.length > 0) {
-    content = allCharacters.map(function(character, index) {
-      let wand = character.wand;
-      
-      return (
-        <div key={index} className='characters' onClick={showCharInfo}>
-          <h3 className='charName'>{character.name}</h3>
-          <img src={character.image} 
-                alt={character.name}
-                id='char-pic'
-          /> 
-          {isHidden && 
-          <div>
-            <p className='actor'>Played by {character.actor}</p>
-            <div style={{display: wand.wood ? 'block' : 'none'}}>
-              <h4>Wand Information</h4>
-              <p>Material: {wand.wood}</p>
-              <p>Core: {wand.core}</p>
-              <p>Length: {wand.length} inches</p>
-            </div>
-          </div>}
-        </div>
-      )
-    })
-  } else {
-    content = <h1>There Are No Characters!</h1>
-  }
 
   return (
     <Router>
@@ -127,8 +43,16 @@ function App() {
           >
             Staff
           </Link>
+          <Link to='/searchForm'
+                style={{textDecoration: 'none',
+                color: 'white',
+                padding: '2em'
+                }}
+          >
+            Search Houses
+          </Link>
           
-          <form onSubmit={handleSubmit}
+          {/* <form onSubmit={handleSubmit}
                 style={{display: 'inline-block',
                         padding: '1em'
                 }}
@@ -140,21 +64,19 @@ function App() {
                       id='search-house'
               />
             </label>
-          </form>
+          </form> */}
         </nav>
         
         <Switch>
+          <Route exact path='/' component={AllCharacters} />
           <Route exact path='/students' component={Students} />
           <Route exact path='/staff' component={Staff} />
+          <Route path='/searchForm' component={SearchForm} />
         </Switch>
         
-        <div>
-          {houseReps}
-        </div>
-
-        <div>
+        {/* <div>
           {content}
-        </div>
+        </div> */}
       </div>
     </Router>
   );
