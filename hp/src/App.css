@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
@@ -19,6 +19,29 @@
 #char-pic {
   width: 90px;
   height: 100px;
+  border-radius: 50%;
+}
+
+.characters {
+  display: inline-block;
+  width: 120px;
+  height: 150px;
+  font-size: calc(0.3em + 2vmin);
+  vertical-align: middle;
+  padding: 0.5em;
+  border: 1px solid silver;
+  border-style: groove;
+  margin: 0.3em;
+}
+
+.charName {
+  height: 17%;
+  
+  font-size: calc(0.2em + 2vmin);
+}
+
+.actor {
+  height: 40px;
 }
 
 
