@@ -22,7 +22,6 @@ function Staff() {
         <div key={index}
               className='characters'
         >
-          <h1 className='title'>Hogwarts Staff:</h1>
           <p className='charName'>{teacher.name}</p>
           <img src={teacher.image}
                 alt={teacher.name}
@@ -38,7 +37,10 @@ function Staff() {
 
   return (
     <div>
-      {teachers}
+      <h1 className='title'>Hogwarts Staff</h1>
+      <div>
+        {teachers}
+      </div>
     </div>
   )
   

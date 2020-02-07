@@ -24,7 +24,6 @@ function Students() {
               className='characters'
         
         >
-          <h1 className='title'>Hogwarts Students:</h1>
           <p className='charName'>{student.name}</p>
           <img src={student.image}
                 alt={student.name}
@@ -39,7 +38,10 @@ function Students() {
   }
   return (
     <div>
-      {pupils}
+      <h1 className='title'>Hogwarts Students</h1>
+      <div>
+        {pupils}
+      </div>
     </div>
   )
 }
