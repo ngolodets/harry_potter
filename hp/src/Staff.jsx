@@ -19,8 +19,15 @@ function Staff() {
   if (staff.length > 0) {
     teachers = staff.map(function(teacher, index) {
       return (
-        <div key={index}>
-          {teacher.name}
+        <div key={index}
+              className='characters'
+        >
+          <p className='charName'>{teacher.name}</p>
+          <img src={teacher.image}
+                alt={teacher.name}
+                className='char-pic'
+          
+          />
         </div>
       )
     })

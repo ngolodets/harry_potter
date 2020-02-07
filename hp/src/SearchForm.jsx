@@ -28,8 +28,15 @@ function SearchForm() {
   if (houses.length > 0) {
     houseReps = houses.map(function(rep, index) {
       return (
-        <div key={index}>
-          {rep.name}
+        <div key={index}
+            className='characters'
+        
+        >
+          <p className='charName'>{rep.name}</p>
+          <img src={rep.image}
+                alt={rep.name}
+                className='char-pic'
+          />
         </div>
       )
     })
@@ -52,7 +59,9 @@ function SearchForm() {
               />
             </label>
           </form>
+      <div>
       {houseReps}
+      </div>
     </div>
   )
 

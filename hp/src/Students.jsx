@@ -20,8 +20,16 @@ function Students() {
   if (students.length > 0) {
     pupils = students.map(function(student, index) {
       return (
-        <div key={index}>
-          {student.name}
+        <div key={index}
+              className='characters'
+        
+        >
+          <p className='charName'>{student.name}</p>
+          <img src={student.image}
+                alt={student.name}
+                className='char-pic'
+          
+          />
         </div>
       )
     })

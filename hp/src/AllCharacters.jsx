@@ -36,27 +36,49 @@ function AllCharacters() {
         <div key={index} 
               className='characters' 
               onClick={showCharInfo}
-              style={{width:  isHidden ? '60%' : '120px',
-                      height: isHidden ? '100%' : '150px'}}
+              style={{width:  isHidden ? '50%' : '120px',
+                      height: isHidden ? '90%' : '150px',
+                      border: isHidden ? '4px solid silver' : '1px solid silver',
+                      borderStyle: isHidden ? 'outset' : 'groove'
+                    }}
         >
           {hidePic && 
           <div>
             <h3 className='charName'>{character.name}</h3>
             <img src={character.image} 
                 alt={character.name}
-                
-                id='char-pic'
+                className='char-pic'
             />
           </div>
           }
           {isHidden && 
-          <div>
-            <p className='actor'>Played by {character.actor}</p>
+          <div className='description'>
+            <img src={character.image} 
+                alt={character.name}
+                id='charPic1'
+            />
+            <h3>{character.name}</h3>
+            <p className='actor'>(Played by {character.actor})</p>
+            <p>{character.ancestry}</p>
+            <p style={{display: character.house ? 'block' : 'none'}}
+            >
+              <span>House:</span> {character.house}</p>
+            <p style={{display: character.dateOfBirth ? 'block' : 'none'}}
+            >
+              <span>Born:</span> {character.dateOfBirth}</p>
+            <p style={{display: character.eyeColour ? 'block' : 'none'}}
+            >
+              <span>Eye Color:</span> {character.eyeColour}</p>
+            <p>Hair Color: {character.hairColour}</p>
+            <p style={{display: character.patronus ? 'block' : 'none'}}
+            >
+              <span>Patronus:</span> {character.patronus}</p>
             <div style={{display: wand.wood ? 'block' : 'none'}}>
-              <p>Wand Information</p>
-              <p>Material: {wand.wood}</p>
-              <p>Core: {wand.core}</p>
-              <p>Length: {wand.length} inches</p>
+              <p><span>Wand Material:</span> {wand.wood}</p>
+              <p style={{display: wand.core ? 'block' : 'none'}}
+              >
+                <span>Wand Core:</span> {wand.core}</p>
+              <p><span>Wand Length:</span> {wand.length} inches</p>
             </div>
           </div>}
         </div>
