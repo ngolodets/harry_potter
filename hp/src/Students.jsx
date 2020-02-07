@@ -24,6 +24,7 @@ function Students() {
               className='characters'
         
         >
+          <h1 className='title'>Hogwarts Students:</h1>
           <p className='charName'>{student.name}</p>
           <img src={student.image}
                 alt={student.name}

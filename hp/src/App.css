@@ -13,7 +13,7 @@ span {
   font-weight: bold;
 }
 
-#title {
+.title {
   font-size: calc(1em + 2vmin);
   margin-top: 1.1em;
   margin-bottom: 0;
@@ -97,7 +97,7 @@ span {
 @media screen and (max-width: 600px) {
   .nav {
     font-size: calc(0.18em + 2vmin);
-    padding: 1.5em;
+    padding: 1.9em;
   }
 } 
 

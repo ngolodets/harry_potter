@@ -4,9 +4,12 @@ import axios from 'axios';
 function SearchForm() {
   const [house, setHouse] = useState('');
   const [houses, setHouses] = useState([]);
+  const [houseId, setHouseId] = useState('');
 
   function getHouse(e) {
-    setHouse(e.target.value);  
+    setHouse(e.target.value);
+    let currentHouse = (e.target.value).toUpperCase();
+    setHouseId(currentHouse); 
   }
 
   function handleSubmit(e, input) {
@@ -60,7 +63,14 @@ function SearchForm() {
             </label>
           </form>
       <div>
-      {houseReps}
+        <h1 className='title'
+            style={{display: houseReps.length ? 'block' : 'none'}}
+        >
+          Hogwarts Houses: {houseId}
+        </h1>
+        <div>
+        {houseReps}
+        </div> 
       </div>
     </div>
   )

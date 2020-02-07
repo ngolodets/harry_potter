@@ -22,6 +22,7 @@ function Staff() {
         <div key={index}
               className='characters'
         >
+          <h1 className='title'>Hogwarts Staff:</h1>
           <p className='charName'>{teacher.name}</p>
           <img src={teacher.image}
                 alt={teacher.name}
