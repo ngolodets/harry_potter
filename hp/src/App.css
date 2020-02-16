@@ -51,6 +51,7 @@ span {
 .char-pic:hover {
   border: 1.5px solid#7f0909;
   border-style: inset;
+  transform: scaleX(-1);
 }
 
 #charPic1 {

@@ -69,7 +69,7 @@ function AllCharacters() {
             <p style={{display: character.eyeColour ? 'block' : 'none'}}
             >
               <span>Eye Color:</span> {character.eyeColour}</p>
-            <p>Hair Color: {character.hairColour}</p>
+            <p><span>Hair Color:</span> {character.hairColour}</p>
             <p style={{display: character.patronus ? 'block' : 'none'}}
             >
               <span>Patronus:</span> {character.patronus}</p>

@@ -40,27 +40,27 @@ function App() {
           </Link>
           <Link to='/students'
                 style={{textDecoration: 'none',
-                color: isClicked ? '#0d6217' : '#aaaaaa',
-                backgroundColor: !isClicked ? '#0d6217' : '#aaaaaa',
-                padding: '2em'
+                        color: isClicked ? '#0d6217' : '#aaaaaa',
+                        backgroundColor: !isClicked ? '#0d6217' : '#aaaaaa',
+                        padding: '2em'
                 }}
           >
             Students
           </Link>
           <Link to='/staff'
                 style={{textDecoration: 'none',
-                color: isClicked ? '#eee117' : 'black',
-                backgroundColor: !isClicked ? '#eee117' : 'black',
-                padding: '2em'
+                        color: isClicked ? '#eee117' : 'black',
+                        backgroundColor: !isClicked ? '#eee117' : 'black',
+                        padding: '2em'
                 }}
           >
             Staff
           </Link>
           <Link to='/searchForm'
                 style={{textDecoration: 'none',
-                color: isClicked ? '#000a90' : '#946b2d',
-                backgroundColor: !isClicked ? '#000a90' : '#946b2d',
-                padding: '2em'
+                        color: isClicked ? '#000a90' : '#946b2d',
+                        backgroundColor: !isClicked ? '#000a90' : '#946b2d',
+                        padding: '2em'
                 }}
           >
             Search Houses
