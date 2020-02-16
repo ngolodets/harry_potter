@@ -9,6 +9,10 @@
   color: white;
 }
 
+form {
+  font-family: 'Henny Penny', cursive;
+}
+
 span {
   font-weight: bold;
 }
