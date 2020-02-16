@@ -56,6 +56,7 @@ function AllCharacters() {
             <img src={character.image} 
                 alt={character.name}
                 id='charPic1'
+                style={{filter: character.alive ? 'grayscale(0%)' : 'grayscale(100%)'}}
             />
             <h3>{character.name}</h3>
             <p className='actor'>(Played by {character.actor})</p>
