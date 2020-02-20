@@ -3,6 +3,7 @@ import Students from './Students';
 import Staff from './Staff';
 import AllCharacters from './AllCharacters';
 import SearchForm from './SearchForm';
+import Filter from './Filter';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
@@ -65,13 +66,22 @@ function App() {
           >
             Search Houses
           </Link>
+          <Link to='/filter'
+                style={{textDecoration: 'none',
+                color: isClicked ? '#ffc500' : '#7f0909',
+                backgroundColor: !isClicked ? '#ffc500' : '#7f0909',
+                padding: '2em'
+        }}
+          >
+            Dead | Alive
+          </Link>
         </nav>
-        
         <Switch>
           <Route exact path='/' component={AllCharacters} />
           <Route exact path='/students' component={Students} />
           <Route exact path='/staff' component={Staff} />
           <Route path='/searchForm' component={SearchForm} />
+          <Route path='/filter' component={Filter} />
         </Switch>
       </div>
     </Router>

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+//import Filter from './Filter';
 import axios from 'axios';
 
 function AllCharacters() {
@@ -92,6 +93,7 @@ function AllCharacters() {
   return (
     <div>
       <h1 className='title'>Harry Potter Characters:</h1>
+      {/* <Filter/> */}
       {content}
     </div>
   )

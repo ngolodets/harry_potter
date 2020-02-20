@@ -50,26 +50,27 @@ function SearchForm() {
   return (
     <div>
       <form onSubmit={handleSubmit}
-                style={{display: 'inline-block',
-                        padding: '1em'
-                }}
-          >
-            <label>Search House:
-              <input type='text'
-                      value={house}
-                      onChange={getHouse}
-                      id='search-house'
-              />
-            </label>
-          </form>
+            style={{display: 'inline-block',
+                    padding: '1em'}}
+            id='searchForm'   
+      >
+        <label>Search House:
+          <input type='text'
+                  value={house}
+                  onChange={getHouse}
+                  id='search-house'
+          />
+        </label>
+      </form>
       <div>
         <h1 className='title'
+            id='houseName'
             style={{display: houseReps.length ? 'block' : 'none'}}
         >
           Hogwarts Houses: {houseId}
         </h1>
-        <div>
-        {houseReps}
+        <div id='houseReps'>
+          {houseReps}
         </div> 
       </div>
     </div>

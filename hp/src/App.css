@@ -30,6 +30,7 @@ span {
   font-size: calc(0.3em + 2vmin);
   font-family: 'Special Elite', cursive;
   font-weight: bold;
+  z-index: 999;
 }
 
 #search-house {
@@ -99,10 +100,82 @@ span {
   font-size: calc(0.7em + 2vmin);
 }
 
+#filter {
+  background-color: #282c34;
+  height: 20px;
+  width: 100vw;
+  position: fixed;
+  top: 17%;
+  left: 0vw;
+  z-index: 999;
+}
+
+#living {
+  top: 17%;
+  position: fixed;
+  left: 0vw;
+  z-index: 999;
+  background-color: #282c34;
+  width: 100vw;
+}
+
+/* #filteredChars {
+  overflow: scroll;
+} */
+
+#searchForm {
+  top: 12%;
+  position: fixed;
+  left: 0vw;
+  z-index: 999;
+  background-color: #282c34;
+  width: 100vw;
+}
+
+#houseName {
+  top: 15%;
+  position: fixed;
+  left: 0vw;
+  z-index: 999;
+  background-color: #282c34;
+  width: 100vw;
+}
+
+#houseReps {
+  margin-top: 8%;
+}
+
 @media screen and (max-width: 600px) {
   .nav {
-    font-size: calc(0.18em + 2vmin);
-    padding: 1.9em;
+    font-size: calc(0.05em + 2vmin);
+    padding: 1.1em;
+  }
+  body {
+    margin: 0 auto;
+  }
+  #filter {
+    font-size: calc(0.5em + 2vmin);
+    top: 5%;
+  }
+
+  #living {
+    top: 5%;
+  }
+
+  #livingAndDead {
+    margin-top: 28%;
+  }
+
+  #searchForm {
+    top: 3%;
+  }
+
+  #houseName {
+    top: 5%;
+  }
+
+  #houseReps {
+    margin-top: 29%;
   }
 } 
 
